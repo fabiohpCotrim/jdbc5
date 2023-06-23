@@ -16,10 +16,11 @@ public class Program {
 			conn = DB.getConnection();
 
 			st = conn.prepareStatement(
-					"UPDATE seller " + "SET BaseSalary = BaseSalary + ? " + "WHERE " + "(DepartmentId = ?)");
+					"DELETE FROM department "
+					+ "WHERE "
+					+ "Id = ?");
 
-			st.setDouble(1, 200.0);
-			st.setInt(2, 2);
+			st.setInt(1, 5);
 
 			int rowsAffected = st.executeUpdate();
 
